@@ -190,14 +190,19 @@ const App: React.FC = () => {
               </div>
 
               <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4 text-sm font-bold text-slate-500">
-                <div className="flex items-center gap-1 bg-white/60 px-3 py-1 rounded-lg">
-                  <Check size={16} className="text-[#F58888]" />
-                  <span>Atendimento Online</span>
-                </div>
-                <div className="flex items-center gap-1 bg-white/60 px-3 py-1 rounded-lg">
-                  <Check size={16} className="text-[#F58888]" />
-                  <span>Abordagem TCC</span>
-                </div>
+                {[
+                  "Atendimento Online", 
+                  "Abordagem TCC", 
+                  "Crianças", 
+                  "Adolescentes", 
+                  "Mulheres", 
+                  "Adultos"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center gap-1 bg-white/60 px-3 py-1 rounded-lg">
+                    <Check size={16} className="text-[#F58888]" />
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
             </RevealOnScroll>
           </div>
@@ -215,7 +220,7 @@ const App: React.FC = () => {
                  alt="Psicóloga Mayara Luna" 
                  className="w-full h-full object-cover"
                />
-               <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-[#4D6BD9]/90 to-transparent p-6 pt-20">
+               <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-[#4D6BD9]/90 to-transparent p-6 pt-20 pl-24">
                  <p className="text-white font-bold text-lg">"Sua saúde mental é prioridade."</p>
                </div>
             </div>
