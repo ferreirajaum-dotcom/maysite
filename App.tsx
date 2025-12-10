@@ -18,7 +18,13 @@ import {
 } from 'lucide-react';
 
 // Componente para animar elementos ao entrar na tela (Scroll Reveal)
-const RevealOnScroll = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => {
+interface RevealOnScrollProps {
+  children?: React.ReactNode;
+  delay?: number;
+  className?: string;
+}
+
+const RevealOnScroll: React.FC<RevealOnScrollProps> = ({ children, delay = 0, className = "" }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -189,18 +195,18 @@ const App: React.FC = () => {
                 </button>
               </div>
 
-              <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4 text-sm font-bold text-slate-500">
+              <div className="mt-8 grid grid-cols-3 md:flex md:flex-wrap md:justify-start gap-1.5 md:gap-4 text-[10px] md:text-sm font-bold text-slate-500">
                 {[
                   "Atendimento Online", 
                   "Abordagem TCC", 
-                  "Crianças", 
-                  "Adolescentes", 
-                  "Mulheres", 
+                  "Crianças",
+                  "Adolescentes",
+                  "Mulheres",
                   "Adultos"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-1 bg-white/60 px-3 py-1 rounded-lg">
-                    <Check size={16} className="text-[#F58888]" />
-                    <span>{item}</span>
+                  <div key={index} className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-0.5 md:gap-1 bg-white/60 px-0.5 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg text-center md:text-left h-full shadow-sm md:shadow-none">
+                    <Check size={12} className="text-[#F58888] md:w-4 md:h-4 shrink-0" />
+                    <span className="leading-[1.1] md:leading-tight">{item}</span>
                   </div>
                 ))}
               </div>
